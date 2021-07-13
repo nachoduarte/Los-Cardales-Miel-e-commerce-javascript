@@ -1,0 +1,123 @@
+/*Imports*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif; }
+  
+  html {
+    font-size: 100%; }
+  
+
+
+/*fonts*/
+
+.fontHead{
+    font-family: 'Noto Sans', sans-serif;
+    font-weight:700;
+    font-size: 3rem;
+    line-height:2.5rem;
+    word-spacing:0.2rem;
+}
+
+.fontBold{
+    font-family: 'Noto Sans', sans-serif;
+    font-weight:700;
+    font-size:5rem;
+    word-spacing:0.5rem;
+}
+
+
+.fontReg{
+    font-family: 'Noto Sans', sans-serif;
+    font-weight:400;
+    font-size:3rem;
+    word-spacing:0.6rem;
+}
+
+.fontThin{
+    font-family: 'Noto Sans', sans-serif;
+    font-weight:400;
+    font-size:1.5rem;
+    word-spacing:0.2rem;
+}
+
+
+
+
+/*header*/
+.headerDisplay{
+    background-image:url(../imagenes/background1.jpg);
+    background-repeat:no-repeat;
+    background-position:top center;
+    background-size:cover;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:1rem;
+}
+
+.header__text{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/*body*/
+
+.displayInfo{
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 40% 60%;
+    grid-row-gap: 10rem;
+    padding:2rem;
+}
+
+
+.displayTienda{
+    background-image: url(../imagenes/background1.jpg);
+    background-repeat: no-repeat;
+    background-position:top center;
+    background-size: cover;
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between;
+    padding:2rem;
+    height:50vh;
+}
+
+
+
+
+
+footer{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    width: auto;
+    padding-top:1.5rem;
+    padding-left:2rem;
+    padding-right:10rem;
+    padding-bottom:1.5rem;
+        
+            div{
+                ul{
+                    li{
+                        text-decoration: none;
+                        display: inline;
+                        
+                            a{
+                                img{
+                                    width:30px;
+                                }
+                            }
+
+                    }
+                }
+            }
+        
+}
