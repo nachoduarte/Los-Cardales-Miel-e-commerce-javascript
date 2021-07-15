@@ -1,12 +1,4 @@
  
-
-var caramelos = 100;
-var mielCuarto = 115;
-var mielMedio = 225;
-var mielKilo = 450;
-
-
-
 function Articulo(id, nombre, precio, cantidad){
     this.id=id;
     this.nombre=nombre;
