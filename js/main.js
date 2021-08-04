@@ -38,10 +38,10 @@ let lista = "LISTA DE PRECIOS";
      lista += "\n" + "N° " + articulos[index].id + " Nombre: " + articulos[index].nombre + " Precio: $" + articulos[index].precio; 
  }
 
-alert(lista);
+/*alert(lista);
 
 //SOLICITAR PRODUCTOS
-/*
+
 let estaCompra = solicitarArticulo();
 
 while (carrito <= 4){
@@ -133,11 +133,11 @@ console.log(articulos[3].cantidad);
 console.log(sumaProductos);
 
 
-alert("Caramelos de propoleo $ " + articulos[0].precio + "\n " +
+/*alert("Caramelos de propoleo $ " + articulos[0].precio + "\n " +
       "Miel de cuarto kilo $ " + articulos[1].precio + "\n " + 
       "Miel de medio kilo $ " + articulos[2].precio + "\n " +
       "Miel de kilo $ " + articulos[3].precio + "\n " +
       "costo de envío $ " + costoEnvio + "\n " + 
       "TOTAL $ " + sumaProductos);
 
-
+*/

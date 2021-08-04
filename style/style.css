@@ -12,34 +12,44 @@ html {
 .fontHead {
   font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 4rem;
   line-height: 2.5rem;
   word-spacing: 0.2rem; }
 
 .fontBold {
   font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
-  font-size: 5rem;
+  font-size: 3rem;
   word-spacing: 0.5rem; }
 
 .fontReg {
   font-family: 'Noto Sans', sans-serif;
   font-weight: 400;
-  font-size: 3rem;
+  font-size: 2rem;
   word-spacing: 0.6rem; }
 
 .fontThin {
   font-family: 'Noto Sans', sans-serif;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1rem;
   word-spacing: 0.2rem; }
+
+.bodyTextColor {
+  color: #292b2c; }
 
 /*header*/
 .headerDisplay {
-  background-image: url(../imagenes/background1.jpg);
+  background-image: url(../imagenes/bannerwebarriba.jpg);
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
+  border-bottom: solid 1px #EAEAEA;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: initial;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -48,29 +58,74 @@ html {
 .header__text {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 1.5rem; }
+
+.header__nav--display {
+  display: flex;
+  flex-direction: row;
   align-items: center; }
 
+.nav-item {
+  padding: 0.5rem;
+  margin-right: 1rem;
+  height: 3rem; }
+
+.nav-item:hover .nav-link {
+  color: #f0ad4e; }
+
+.nav-item:hover .current-link {
+  width: 4px;
+  height: 4px; }
+
+.nav-link {
+  padding: 0;
+  line-height: 1.5rem;
+  letter-spacing: 1px;
+  transition: all 300ms ease-in-out; }
+
+.nav-link:visited {
+  color: #292b2c; }
+
+.nav-link.active ~ .current-link {
+  width: 4px;
+  height: 4px; }
+
+.current-link {
+  width: 0px;
+  height: 0px;
+  background: #f0ad4e;
+  border-radius: 100px;
+  margin-top: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 300ms ease-in-out; }
+
 /*body*/
+.mainStyle {
+  background-image: url(../imagenes/apiariopintura.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 2rem; }
+
 .displayInfo {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 40% 60%;
   grid-row-gap: 10rem;
-  padding: 2rem; }
+  padding: 2rem;
+  margin-top: 10rem; }
 
 .displayTienda {
-  background-image: url(../imagenes/background1.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  padding: 2rem;
-  height: 50vh; }
+  justify-content: space-between; }
 
 footer {
+  background-image: url(../imagenes/bannerwebabajo.jpg);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -80,6 +135,8 @@ footer {
   padding-left: 2rem;
   padding-right: 10rem;
   padding-bottom: 1.5rem; }
+  footer div h5 {
+    color: #f0ad4e; }
   footer div ul li {
     text-decoration: none;
     display: inline; }
