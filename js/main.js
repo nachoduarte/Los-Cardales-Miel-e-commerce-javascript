@@ -1,11 +1,45 @@
  
+ $(document).ready(function() {
+    
+    //Definicion de eventos posterior a la carga de la interfaz
+     const botonAgregar = $('.btnAgregar');
+
+     for (const boton of botonAgregar) {
+         boton.addEventListener("click", comprarManejador);
+         
+    }
+
+    //Carga de datos de usuario en interfaz carrito
+    if ("COMPRA" in localStorage){
+        const datosCompra = JSON.parse(localStorage.getItem("COMPRA"));
+        for (const iterator of datosCompra) {
+            compra.push(new Articulo(iterator.id, iterator.nombre, iterator.precio, iterator.imagen, iterator.cantidad));
+        }
+        carritoUI(compra);
+    }else{
+        $("#carritoProductos").append('<p class="fontThin">Todavía no agregaste nada!</p>');
+    }
+
+    //Evitar propagacion
+    $(".dropdown-menu").click(function (e){
+        e.stopPropagation();
+    })
+
+
+})
+
+window.addEventListener('load', () => {
+    $("#indicador").remove();
+    
+    
+})
 
 //PUSH de articulos al array de objetos
 
-articulos.push(new Articulo(1, "Caramelos x50 unidades", 100, 10, "./imagenes/caramelos.jpg"));
-articulos.push(new Articulo(2, "Miel de 250gr", 115, 10, "./imagenes/mielcuarto.jpg"));
-articulos.push(new Articulo(3, "Miel de 500gr", 225, 10, "./imagenes/mielmedio.jpg"));
-articulos.push(new Articulo(4, "Miel de 1 kilo", 450, 10, "./imagenes/mielkilo.jpg"));
+articulos.push(new Articulo(1, "Caramelos x50 unidades", 100, "./imagenes/caramelos.jpg", 0));
+articulos.push(new Articulo(2, "Miel de 250gr", 115, "./imagenes/mielcuarto.jpg", 0));
+articulos.push(new Articulo(3, "Miel de 500gr", 225, "./imagenes/mielmedio.jpg", 0));
+articulos.push(new Articulo(4, "Miel de 1 kilo", 450, "./imagenes/mielkilo.jpg", 0));
 
 //INTERFAZ HTML DE TIENDA
 
@@ -23,12 +57,7 @@ for (const articulo of articulos) {
     tienda.appendChild(divProducto);
 }
 
-//EVENTOS DE PRODUCTOS
-const botonAgregar = document.getElementsByClassName("btnAgregar");
 
-for (const boton of botonAgregar){
-    boton.addEventListener("click", comprarManejador);
-}
 
 
 

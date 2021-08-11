@@ -118,12 +118,30 @@ html {
   padding: 2rem;
   margin-top: 10rem; }
 
+.cajaTexto {
+  background-image: url(../imagenes/blurry.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  margin-top: 1rem;
+  margin-bottom: auto; }
+
 .displayTienda {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between; }
 
+/*.tiendaStyle{
+    background-image: url(../imagenes/blurry.png);
+    background-repeat:repeat-y;
+    background-position: right ;
+    background-size:cover;
+
+}
+*/
 footer {
   background-image: url(../imagenes/bannerwebabajo.jpg);
   display: flex;

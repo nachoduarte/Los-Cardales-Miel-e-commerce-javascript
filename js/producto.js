@@ -1,14 +1,20 @@
 //DECLARACION DE OBJETOS
-function Articulo(id, nombre, precio, cantidad, imagen){
-    this.id=id;
-    this.nombre=nombre;
-    this.precio=precio;
-    this.cantidad=cantidad;
-    this.imagen=imagen;
-    this.vender = function (cantidad){
-        this.cantidad -= cantidad;
-    }
-    this.reponer = function (cantidad){
-        this.cantidad += cantidad;
-    }
+class Articulo {
+    constructor(id, nombre, precio, imagen, cantidad) {
+        this.id = parseInt(id);
+        this.nombre = nombre;
+        this.precio = parseFloat(precio);
+        this.imagen = imagen;
+        this.cantidad = cantidad || 1;
+        }
+        agregarCantidad(valor){
+            this.cantidad += valor;
+        }
+
+        subtotal(){
+            return this.cantidad * this.precio;
+        }
+        reponer(cantidad){
+            this.cantidad += cantidad;
+        }
 }
