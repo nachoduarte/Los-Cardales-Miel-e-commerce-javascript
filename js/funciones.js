@@ -3,6 +3,24 @@
 //Suma de productos 
 const suma = (a,b,c,d,e) => a + b + c + d + e;
 
+//Plantilla html para interfaz de articulo 
+
+function articulosUI(articulos, id){
+    $(id).empty();
+    for (const articulo of articulos) {
+        $(id).append(
+            '<div class="card" style="width: 18rem;"> ' +
+            '<img src="' + articulo.imagen + '" class="card-img-top" alt="...">' +
+                '<div class="card-body">' +
+                '<h5 class="card-title">' + articulo.nombre + '</h5>' +
+                '<p class="card-text"> Precio $ ' + articulo.precio + '.</p> </div>' +
+                '<div class="card-body">' +
+                '<button id=' + articulo.id + ' type="button" class="btn btn-warning btnAgregar">Agregar al carrito</button>' +
+                ' </div> </div>'
+        );
+    }
+}
+
 //Plantilla html para interfaz de carrito
 function componenteCarrito(articulo){
     return `<div class="dropdown-menu--display"><img src="${articulo.imagen}" width=60>

@@ -21,7 +21,7 @@
                 <img src="imagenes/logo.png" alt="logo de miel los cardales" width="120" height="140">
             </div> 
 
-            <div class="header__text">
+            <div class="header__text" id="headerLoad" style="display: none;">
                 <h1 class="fontHead">Los Cardales</h1>
                 <h2 class="fontReg">Miel Pura</h2>
             </div>
@@ -42,9 +42,11 @@
                           <div class="current-link"></div>
                           <span id="carritoCantidad" class="badge rounded-pill bg-warning text-dark">0</span> <!--Generacion Interactiva de carrito-->
                       </a>
-                      <div id="carritoProductos" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      
+                        <div id="carritoProductos" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                      </div>
+                        </div>
+                      
                     </li>
 
                     <div class="d-flex justify-content-center" id="indicador">
@@ -64,47 +66,51 @@
 
     <main class="mainStyle">
         
-        
-        <!--Info-->
-        <section class="displayInfo bodyTextColor" id="info">
+    
 
-                
+        <div id="bodyLoad" style="display: none;">
+            <!--Info-->
+            <section class="displayInfo bodyTextColor" id="info">
 
-                
-                <div class="container-fluid"> 
-                    <img src="imagenes/abejas.jpg" width=60%>
+                    
+
+                    
+                    <div class="container-fluid"> 
+                        <img src="imagenes/abejas.jpg" width=60%>
+                    </div>
+
+                    <div class="container-fluid cajaTexto">
+                        <h3 class="fontBold">Elaboración Artesanal</h3>
+                        <p class="fontReg">Acompañamos el trabajo de las abejas utilizando buenas prácticas de producción.</p>
+
+                    </div>
+                    <div class="container-fluid cajaTexto">
+                        <h3 class="fontBold">¿Sabías que la miel...</h3>
+                        <p class="fontReg">varía su color, sabor y aroma, dependiendo de las flores de las cuales proviene?</p>
+                    </div>
+
+                    <div class="container-fluid">
+                        <img src="imagenes/mieles.jpg" width=60%>
+                    </div> 
+
+                    
+
+            </section>
+
+
+
+
+
+            
+            <section class="tiendaStyle">
+                <h4 class="fontReg bodyTextColor">Tienda Online</h4>
+                <div class="displayTienda" id="tienda">     <!--Tienda, INTERFAZ PROGRAMADA POR JAVASCRIPT-->
+                    
                 </div>
 
-                <div class="container-fluid cajaTexto">
-                    <h3 class="fontBold">Elaboración Artesanal</h3>
-                    <p class="fontReg">Acompañamos el trabajo de las abejas utilizando buenas prácticas de producción.</p>
+            </section>
 
-                </div>
-                <div class="container-fluid cajaTexto">
-                    <h3 class="fontBold">¿Sabías que la miel...</h3>
-                    <p class="fontReg">varía su color, sabor y aroma, dependiendo de las flores de las cuales proviene?</p>
-                </div>
-
-                <div class="container-fluid">
-                    <img src="imagenes/mieles.jpg" width=60%>
-                </div> 
-
-                
-
-        </section>
-
-
-
-
-
-        
-        <section class="tiendaStyle">
-            <h4 class="fontReg bodyTextColor">Tienda Online</h4>
-            <div class="displayTienda" id="tienda">     <!--Tienda, INTERFAZ PROGRAMADA POR JAVASCRIPT-->
-                
-            </div>
-
-        </section>
+        </div>
     </main>
     
 

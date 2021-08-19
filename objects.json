@@ -1,0 +1,29 @@
+[{
+        "id": 1,
+        "nombre": "Caramelos x50 unidades",
+        "precio": 100,
+        "imagen": "./imagenes/caramelos.jpg",
+        "cantidad": 0
+    },
+    {
+        "id": 2,
+        "nombre": "Miel de 250gr",
+        "precio": 115,
+        "imagen": "./imagenes/mielcuarto.jpg",
+        "cantidad": 0
+    },
+    {
+        "id": 3,
+        "nombre": "Miel de 500gr",
+        "precio": 225,
+        "imagen": "./imagenes/mielmedio.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 4,
+        "nombre": "Miel de 1 kilo",
+        "precio": 450,
+        "imagen": "./imagenes/mielkilo.jpg",
+        "cantidad": 1
+    }
+]
