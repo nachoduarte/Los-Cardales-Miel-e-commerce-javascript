@@ -2,7 +2,7 @@
 
 
      //Carga de datos de usuario en interfaz carrito
-     if ("COMPRA" in localStorage) {
+     if ("COMPRA" in localStorage != '[]') {
          const datosCompra = JSON.parse(localStorage.getItem("COMPRA"));
          for (const iterator of datosCompra) {
              compra.push(new Articulo(iterator.id, iterator.nombre, iterator.precio, iterator.imagen, iterator.cantidad));
@@ -43,6 +43,7 @@
                         $(this).fadeOut(400)
                             .animate({
                                 opacity: 0.9,
+                                
                             })
                             .css("background-color", "#d48415")
                             .delay(300)

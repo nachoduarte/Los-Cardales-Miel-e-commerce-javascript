@@ -1,8 +1,5 @@
 //DECLARACION DE FUNCIONES
 
-//Suma de productos 
-const suma = (a,b,c,d,e) => a + b + c + d + e;
-
 //Plantilla html para interfaz de articulo 
 
 function articulosUI(articulos, id){
@@ -23,13 +20,19 @@ function articulosUI(articulos, id){
 
 //Plantilla html para interfaz de carrito
 function componenteCarrito(articulo){
-    return `<div class="dropdown-menu--display"><img src="${articulo.imagen}" width=60>
+    return `<div class="dropdown-menu--display"><img src="${articulo.imagen}" width=45>
                 <h4>${articulo.nombre} $${articulo.precio}</h4>
                 <p><span class="badge btn-dark">${articulo.cantidad}</span></p>
                 <p><b>subtotal: $ ${articulo.subtotal()}</b></p>
-                <a id="${articulo.id}" class="btn btn-info btn-add">+</a>
-                <a id="${articulo.id}" class="btn btn-danger btn-sub">-</a>
-                <button type="button" class="btn btn-warning btn-delete">x</button>
+                <a id="${articulo.id}" class="btn btn_compra--style btn-add">
+                <img src="./imagenes/plus-circle.svg" width=20>
+                </a>
+                <a id="${articulo.id}" class="btn btn_compra--style btn-sub">
+                <img src="./imagenes/minus-circle.svg" width=20>
+                </a>
+                <button type="button" class="btn btn_compra--style btn-delete">
+                <img src="./imagenes/x-circle.svg" width=20>
+                </button>
             </div>`
 }
 
@@ -41,13 +44,22 @@ function carritoUI(articulos){
     for (const articulo of articulos){
         $("#carritoProductos").append(componenteCarrito(articulo));
     } 
+    //Agregar TOTAL
+    $('#carritoProductos').append(`<p class="fontThin" id="totalCarrito"> Total $${totalCarrito(compra)}</p>`);
+    //Confirmacion de compra
+    if (compra != ''){
+        $('#carritoProductos').append(`<div id="divConfirmar" class="text-center"><button class="btn btn-warning" id="btnConfirmar">Comprar <img src="./imagenes/check-circle.svg"></button></div>`);
+    }
+    //Asociacion de eventos
     $(".btn-delete").on("click", eliminarCarrito);
     $(".btn-add").click(addCantidad);
     $(".btn-sub").click(subCantidad);
+    $("#btnConfirmar").click(confirmarCompra);
     //Evitar propagacion
     $(".dropdown-menu").click(function (e){
         e.stopPropagation();
     })
+    
 }
 
 //Manejador de compra
@@ -82,7 +94,9 @@ function addCantidad(){
     articulo.agregarCantidad(1);
     $(this).parent().children()[2].innerHTML = `<p><span class="badge btn-dark">${articulo.cantidad}</span></p>`
     $(this).parent().children()[3].innerHTML = `<p><b>subtotal: $ ${articulo.subtotal()}</b></p>`
-
+    //Modificar total 
+    $("#totalCarrito").html(`Total $${totalCarrito(compra)}`);
+    //guardado en storage
     localStorage.setItem("COMPRA", JSON.stringify(compra));
 }
 //Manejador para restar cantidad
@@ -93,8 +107,49 @@ function subCantidad(){
         let registroUI = $(this).parent().children();
         registroUI[2].innerHTML = `<p><span class="badge btn-dark">${articulo.cantidad}</span></p>`
         registroUI[3].innerHTML =`<p><b>subtotal: $ ${articulo.subtotal()}</b></p>`
+        //Modificar total
+        $("#totalCarrito").html(`Total $${totalCarrito(compra)}`);
+        //guardado en storage
         localStorage.setItem("COMPRA", JSON.stringify(compra));
+    }else if(articulo.cantidad == 1){
+        compra.splice(articulo,1);
+        $("#totalCarrito").html(`Total $${totalCarrito(compra)}`);
+        localStorage.setItem("COMPRA", JSON.stringify(compra));
+        carritoUI(compra);
     }
 }
 
 console.dir(document.getElementById("carritoProductos"));
+
+
+function totalCarrito(compra) {
+    let total = 0;
+    compra.forEach(p => total += p.subtotal());
+    return total.toFixed(2);
+}
+
+function confirmarCompra(){
+    $("#btnConfirmar").animate({opacity:0.5},100)
+        .fadeOut("slow");
+    $('#divConfirmar').append(`<div class="spinner-border text-success" role="status">
+                                <span class="sr-only"></span>
+                             </div>`);
+    //Envio de datos de compra
+    const URL = "https://jsonplaceholder.typicode.com/posts";
+    const DATA = {articulos: JSON.stringify(compra), total: totalCarrito(compra)}
+    $.post(URL, DATA, function(respuesta, estado){
+        if(estado == 'success'){
+            $('#divConfirmar').fadeOut(2000);
+            $("#notificaciones").html(`<div>Compra confirmada! Comprobante Nº ${respuesta.id}.</div>
+                                        <div>Total de tu compra: $${respuesta.total}</div>`).css({backgroundColor: "#d48415"})
+                        .stop(false, true)
+                            .fadeIn("fast")
+                                .delay(4000)
+                                    .fadeOut(2000);
+            compra.splice(0, compra.length);
+            localStorage.setItem("COMPRA", '[]');
+            $('#carritoProductos').empty();
+            $('#carritoCantidad').html(0);
+        }
+    })
+}

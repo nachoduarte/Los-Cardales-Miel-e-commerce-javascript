@@ -102,6 +102,27 @@ html {
   margin-right: auto;
   transition: all 300ms ease-in-out; }
 
+/*Carrito Style*/
+#carritoProductos {
+  display: none;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  margin-right: 15px;
+  z-index: 1;
+  right: 0; }
+
+.dropdown-menu--display {
+  display: block;
+  margin: 10px; }
+
+.btn_compra--style {
+  background-color: #fcba03;
+  box-shadow: 0px 8px 6px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 100px;
+  padding: 2px; }
+
 /*body*/
 .mainStyle {
   background-image: url(../imagenes/apiariopintura.jpg);
@@ -109,6 +130,10 @@ html {
   background-position: center center;
   background-size: cover;
   padding: 2rem; }
+
+.imgStyle {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 0; }
 
 .displayInfo {
   display: grid;
@@ -126,6 +151,7 @@ html {
   padding-left: 8rem;
   padding-right: 8rem;
   margin-top: 1rem;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   margin-bottom: auto; }
 
 .displayTienda {
@@ -134,14 +160,20 @@ html {
   align-items: center;
   justify-content: space-between; }
 
-/*.tiendaStyle{
-    background-image: url(../imagenes/blurry.png);
-    background-repeat:repeat-y;
-    background-position: right ;
-    background-size:cover;
+#notificaciones {
+  position: fixed;
+  top: 20rem;
+  display: block;
+  padding: 5rem;
+  left: 35%;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  display: none;
+  z-index: 1 !important;
+  border-radius: 10px; }
 
-}
-*/
 footer {
   background-image: url(../imagenes/bannerwebabajo.jpg);
   display: flex;
