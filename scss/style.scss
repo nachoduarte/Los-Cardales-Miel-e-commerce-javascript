@@ -130,6 +130,19 @@
     z-index: 1;
     right:0;
 }
+#carritoCantidad{
+    position:absolute;
+    right:-8px;
+    bottom: 8px;
+
+}
+a{
+    text-decoration: none;
+    text-decoration-line: none !important;
+    border:0;
+    position: relative;
+}
+
 
 .dropdown-menu--display{
     display:block;
