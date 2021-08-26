@@ -2,7 +2,7 @@
 
 
      //Carga de datos de usuario en interfaz carrito
-     if ("COMPRA" in localStorage != '[]') {
+     if ("COMPRA" in localStorage) {
          const datosCompra = JSON.parse(localStorage.getItem("COMPRA"));
          for (const iterator of datosCompra) {
              compra.push(new Articulo(iterator.id, iterator.nombre, iterator.precio, iterator.imagen, iterator.cantidad));
@@ -19,7 +19,8 @@
 
      $("#headerLoad").fadeIn("fast");
     
-    //Carga de productos por archivo json 
+    //Carga de productos por archivo json
+    const URLGET = "./objects.json"; 
     $.get(URLGET, function (datos, estado) {
         if(estado == "success") {
             for(const iterator of datos){
