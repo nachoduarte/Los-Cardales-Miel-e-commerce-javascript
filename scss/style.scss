@@ -177,8 +177,12 @@ a{
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
     grid-row-gap: 10rem;
+    grid-column-gap: 10rem;
     padding:2rem;
     margin-top: 10rem;
+    margin-bottom: 10rem;
+    margin-left:5rem;
+    margin-right:5rem;
 }
 
 .cajaTexto{
